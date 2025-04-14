@@ -26,4 +26,8 @@ func SetupRoutes(r *gin.Engine) {
 	r.DELETE("/notes/:id_notes", controller.DeleteNote)
 	r.GET("/notes/category/:id_category", controller.GetNotesByCategory)
 	r.GET("/notes/favorite", controller.GetFavoriteNotes)
+
+	r.GET("/notes/:id_notes/collaborators", controller.GetCollaboratorsByNoteID)
+	r.POST("/notes/:id_notes/collaborators/:id_user", controller.AddCollaborator)
+	r.DELETE("/notes/:id_notes/collaborators/:id_user", controller.RemoveCollaborator)
 }
